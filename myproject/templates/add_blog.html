@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+<title>Add Blog</title>
+
+{% endblock title %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block body %}
+
+
+<div class="container">
+
+    <div class="container text-center shadow my-5">
+        <h1 class="display-5 text-primary">Add Blogs</h1>
+    </div>
+
+    <div class="container shadow my-5 ">
+
+        <form action="{% url 'add_blog' %}" method="post">
+
+            {% csrf_token %}
+
+            <div class="cointainer my-3">
+
+                {% for fm in form %}
+
+                    {{fm.label_tag}}{{fm}}
+
+                {% endfor %}
+            
+            </div>
+
+            <div class="cointainer my-3">
+
+                <button type="submit" class="btn btn-success">Submit</button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</div>
+
+
+{% endblock body %}

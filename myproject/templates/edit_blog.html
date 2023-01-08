@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+<title>Edit Blog</title>
+
+{% endblock title %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block body %}
+
+
+<div class="container">
+
+    <div class="container text-center shadow my-5">
+        <h1 class="display-5 text-primary">Update Blogs</h1>
+    </div>
+
+    <div class="container shadow my-5 ">
+
+        
+            <div class="container my-5 pb-3">
+                
+                <form action="{% url 'edit_blog' form.id %}" method="post">
+                    {% csrf_token %}
+
+                    <label for="title">Title :</label>
+                    <input class="form-control my-3" type="text" name="title" id="title" value="{{form.title}}">
+
+                    <label for="desc">Description :</label>
+                    <textarea class="form-control my-3" name="desc" id="desc" cols="30" rows="10">{{form.desc}}</textarea>
+
+                    <button class="btn btn-primary" type="submit">Update</button>
+
+                </form>
+
+            </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock body %}
